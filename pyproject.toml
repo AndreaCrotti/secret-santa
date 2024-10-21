@@ -1,14 +1,14 @@
 [tool.poetry]
-name = "hello-flask-poetry"
+name = "secret-santa"
 version = "0.1.0"
 description = ""
-authors = ["Donatas Rasiukevicius <donatas@fly.io>"]
+authors = ["Andrea Crotti <andrea.crotti.0@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
 flask = "^3.0.3"
-
+sqlalchemy = "^2.0.36"
 
 [build-system]
 requires = ["poetry-core"]
