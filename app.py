@@ -43,8 +43,8 @@ def partecipants():
         print(get_names("myteam"))
     elif request.method == 'GET':
         print(request.json())
-        return render_template('fragments/list.html')
+        return render_template('fragments/list.html', people=[Person(name="name")])
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', people=[Person(name="name")])
