@@ -41,6 +41,9 @@ def partecipants():
     if request.method == 'POST':
         create_team("myteam", ["p1", "p2", "p3"])
         print(get_names("myteam"))
+    elif request.method == 'GET':
+        print(request.json())
+        return render_template('fragments/list.html')
 
 @app.route('/')
 def index():
