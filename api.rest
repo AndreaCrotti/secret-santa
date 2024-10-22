@@ -1,8 +1,12 @@
-:FLY_HOST = http://secret-santa.fly.dev
-:PORT = 5000
+:fly_host = http://secret-santa.fly.dev
+:local = http://localhost
+:port = 5000
 
 # local
-GET http://localhost::PORT
+GET http://localhost::port
+
+## create team
+POST :local:5000/partecipants
 
 # on fly
 GET :FLY_HOST
