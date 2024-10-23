@@ -1,15 +1,19 @@
-<div class="section">
-  <div class="select">
+<div class="card">
+  <header class="card-header">
+    Select a team to generate a new draw
+  </header>
+  <div class="card-content">
     <select id="select-team"
+            class="select"
             name="select-team"
             hx-get="/partecipants"
             hx-trigger="change"
             hx-target="#list-partecipants">
+      <option value=""></option>
       {% for team in teams %}
       <option value="{{ team.id }}"> {{ team.name }}</option>
       {% endfor %}
     </select>
-
-    <div id="list-partecipants"></div>
   </div>
+  <div id="list-partecipants"></div>
 </div>

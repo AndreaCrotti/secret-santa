@@ -1,20 +1,25 @@
-<div id="participants" class="is-flex section">
-  <form name="create-team"
-        hx-post="/partecipants"
-        hx-swap="#partecipants">
-    <input class="input is-primary"
-           name="team-name"
-           placeholder="team name"
-           type="text"
-           value=""/>
+<div class="card">
+  <header class="card-header">
+    Create new teams
+  </header>
+  <div class="card-content">
+    <form name="create-team"
+          hx-post="/partecipants"
+          hx-swap="#partecipants">
+      <input class="input is-primary"
+             name="team-name"
+             placeholder="team name"
+             type="text"
+             value=""/>
 
-    <input class="input"
-           name="team-members"
-           type="text"
-           placeholder="Comma separated list of members"
-           value=""/>
-    <button class="submit button" type="submit">
-      Create new team
-    </button>
-  </form>
+      <input class="input"
+             name="team-members"
+             type="text"
+             placeholder="Comma separated list of members"
+             value=""/>
+      <button class="submit button" type="submit">
+        Create new team
+      </button>
+    </form>
+  </div>
 </div>
