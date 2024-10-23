@@ -69,15 +69,19 @@ def gen_draw(team_id):
     return render_template('fragments/santa.html', santa)
 
 
-@app.route("/partecipants", methods=["GET"])
+@app.route("/partecipants", methods=["GET", "POST"])
 def partecipants():
-    team_id = request.args.get('select-team')
-    partecipants = get_by_team(team_id)
-    names = [p.name for p in partecipants]
-    print(f"names + {names}, partecipants {partecipants}")
-    return render_template('fragments/list.html',
-                           partecipants=partecipants,
-                           draw=secret_santa(names))
+    if request.method == 'GET':
+        team_id = request.args.get('select-team')
+        partecipants = get_by_team(team_id)
+        names = [p.name for p in partecipants]
+        print(f"names + {names}, partecipants {partecipants}")
+        return render_template('fragments/list.html',
+                               partecipants=partecipants,
+                               draw=secret_santa(names))
+    elif request.method == 'POST':
+        print(f"args = {request.args}")
+        return render_template('fragments/created_team.html')
 
 
 @app.route("/")

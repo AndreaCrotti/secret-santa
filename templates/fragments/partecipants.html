@@ -1,9 +1,20 @@
-<div class="is-flex section">
-  <form hx-post="/partecipants">
-    {% include 'fragments/team_name.html' %}
-    {% include 'fragments/input_person.html' %}
-    <button class="submit button">
-      Create new list
+<div id="participants" class="is-flex section">
+  <form name="create-team"
+        hx-post="/partecipants"
+        hx-swap="#partecipants">
+    <input class="input is-primary"
+           name="team-name"
+           placeholder="team name"
+           type="text"
+           value=""/>
+
+    <input class="input"
+           name="team-members"
+           type="text"
+           placeholder="Comma separated list of members"
+           value=""/>
+    <button class="submit button" type="submit">
+      Create new team
     </button>
   </form>
 </div>
