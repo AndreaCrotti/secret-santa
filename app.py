@@ -40,8 +40,9 @@ def create_team(team_name, people_names):
     db.session.commit()
 
 
-@app.route("/people/<int:team_id>", methods=["GET"])
-def people(team_id):
+@app.route("/people", methods=["GET"])
+def people():
+    team_id = request.args.get('select-team')
     people = Person.query.filter(Team.id == team_id)
     return render_template('fragments/list.html', people=people)
 

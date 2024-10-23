@@ -1,7 +1,9 @@
 <div class="is-flex section">
   <ul id="navigation">
     {% for person in people %}
-    {{ person.name }}
+    <li>
+      {{ person.name }}
+    </li>
     {% endfor %}
   </ul>
 </div>

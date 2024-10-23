@@ -1,9 +1,9 @@
 <div class="section">
   <div class="select">
     <select id="select-team"
+            name="select-team"
             hx-get="/people"
             hx-trigger="change"
-            hx-params="*"
             hx-target="#list-people">
       {% for team in teams %}
       <option value="{{ team.id }}"> {{ team.name }}</option>

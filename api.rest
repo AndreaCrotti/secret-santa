@@ -1,9 +1,8 @@
 :fly_host = http://secret-santa.fly.dev
-:local = http://localhost
-:port = 5000
+:local = http://localhost:5000
 
 # local
-GET http://localhost::port
+GET http://localhost
 
 ## create team
 POST :local:5000/partecipants
@@ -11,3 +10,6 @@ content-type: application/json
 {}
 # on fly
 GET :FLY_HOST
+
+# fetch people from team
+GET :local/people?select-team=1
