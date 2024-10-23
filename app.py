@@ -1,4 +1,3 @@
-import itertools
 import random
 
 from flask import Flask, render_template, request
@@ -51,22 +50,10 @@ def get_teams():
     return Team.query.all()
 
 
-def secret_santa(participants):
-    """Given a list of partecipants, return a random
-    permutation for secret sant"""
-    valid_permutations = [
-        pairing for pairing in itertools.permutations(participants)
-        # remove the self gifting cases
-        if all(p != pairing[i] for i, p in enumerate(participants))
-    ]
-    chosen_pairing = random.choice(valid_permutations)
-    return list(zip(participants, chosen_pairing))
-
-
-def gen_draw(team_id):
-    partecipants = get_by_team(team_id)
-    santa = secret_santa(partecipants)
-    return render_template('fragments/santa.html', santa)
+def secret_santa(members):
+    """Given a list of partecipants, return a random permutation for secret sant"""
+    random.shuffle(members)
+    return list(zip(members, members[1:] + [members[0]]))
 
 
 @app.route("/partecipants", methods=["GET", "POST"])
@@ -89,6 +76,3 @@ def partecipants():
 @app.route("/")
 def index():
     return render_template("index.html", teams=get_teams())
-
-def test_secret_santa():
-    pass
