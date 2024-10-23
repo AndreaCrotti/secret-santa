@@ -75,12 +75,14 @@ def partecipants():
         team_id = request.args.get('select-team')
         partecipants = get_by_team(team_id)
         names = [p.name for p in partecipants]
-        print(f"names + {names}, partecipants {partecipants}")
         return render_template('fragments/list.html',
                                partecipants=partecipants,
                                draw=secret_santa(names))
+
     elif request.method == 'POST':
-        print(f"args = {request.args}")
+        team_name = request.form['team-name']
+        members = request.form['team-members'].split(",")
+        create_team(team_name, members)
         return render_template('fragments/created_team.html')
 
 
