@@ -1,16 +1,27 @@
-# How to run
 
 # Tech stack
 
-- Python+Flask
+- Python+poetry+Flask
 - HTMX
 - SQLite
 
-# Features
+# How to run
 
-- [ ] Compile a list of participants
-- [ ] Establish a blacklist per participant to prevent certain people from drawing certain people
-- [ ] Start a draw that allows to get the complete list of relationships ensuring that
-- [ ] each participant receives a gift and has to offer one while taking into account
-- [ ] their potential blacklist
-- [ ] Access the history of the last 5 draws
+You can see it in action on [fly.io](https://secret-santa.fly.dev/).
+To run it locally, you need to have [poetry](https://python-poetry.org/) installed, and then run:
+- `poetry install`
+- `poetry shell`
+- `flask db upgrade`  (to create a sqlite database)
+
+and finally run with `flask run --debug` and check [localhost:5000](http://localhost:5000/)
+
+# Decisions
+
+To do the task in the suggested maximum time I had to cut things like:
+- tests
+- a responsive UI
+- error handling
+
+Instead I made sure the minimum features were working, and I invested a bit more time in making it deployable on fly.io.
+
+All the code is a single file, since it was simple enough and didn't really make sense to split at this point.
