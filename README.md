@@ -1,3 +1,11 @@
+# How to run
+
+# Tech stack
+
+- Python+Flask
+- HTMX
+- SQLite
+
 # Features
 
 - [ ] Compile a list of participants

@@ -1,14 +1,7 @@
 <div class="is-flex section">
   <ul id="navigation">
     {% for person in people %}
-    <label class="checkbox">
-      <input class="checkbox"
-             name="{{ person.name }}"
-             type="checkbox"
-             id="{{ person.name }}"
-             value=""/>
-      {{ person.name }}
-    </label>
+    {{ person.name }}
     {% endfor %}
   </ul>
 </div>
