@@ -28,7 +28,7 @@ class Person(db.Model):
     __table_args__ = (UniqueConstraint("name", "team_id", name="unique_name"),)
 
     def __repr__(self):
-        return f"<Person {self.name} (Team: {self.team.name})>"
+        return f"<Person {self.name} (Team: {self.team_id})>"
 
 
 def create_team(team_name, people_names):
@@ -43,7 +43,8 @@ def create_team(team_name, people_names):
 @app.route("/people", methods=["GET"])
 def people():
     team_id = request.args.get('select-team')
-    people = Person.query.filter(Team.id == team_id)
+    print(f"query for team id {team_id}")
+    people = Person.query.filter(Person.team_id == team_id)
     return render_template('fragments/list.html', people=people)
 
 
@@ -53,16 +54,6 @@ def get_names(team_id):
 
 def get_teams():
     return Team.query.all()
-
-
-@app.route("/partecipants", methods=["GET", "POST"])
-def partecipants():
-    if request.method == "POST":
-        create_team("myteam", ["p1", "p2", "p3"])
-        print(get_names("myteam"))
-    elif request.method == "GET":
-        print(request.json())
-        return render_template("fragments/list.html", people=[Person(name="name")])
 
 
 @app.route("/")
