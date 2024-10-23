@@ -1,0 +1,7 @@
+<select id="select-team" name="select-team">
+  {% for team in teams %}
+  <option value="{{ team.id }}"> {{ team.name }}</option>
+  {% endfor %}
+  <button> Fetch </button>
+  <div id="people" hx-get="/people/{{ team.id }}"></div>
+</select>
