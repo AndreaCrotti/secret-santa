@@ -2,14 +2,14 @@
   <div class="select">
     <select id="select-team"
             name="select-team"
-            hx-get="/people"
+            hx-get="/partecipants"
             hx-trigger="change"
-            hx-target="#list-people">
+            hx-target="#list-partecipants">
       {% for team in teams %}
       <option value="{{ team.id }}"> {{ team.name }}</option>
       {% endfor %}
     </select>
 
-    <div id="list-people"></div>
+    <div id="list-partecipants"></div>
   </div>
 </div>
