@@ -15,6 +15,9 @@ To run it locally, you need to have [poetry](https://python-poetry.org/) install
 
 and finally run with `flask run --debug` and check [localhost:5000](http://localhost:5000/)
 
+This is how it looks like with dark theme enabled on your browser for example:
+![screenshot](./screenshot.png)
+
 # Decisions
 
 To do the task in the suggested maximum time I had to cut things like:
