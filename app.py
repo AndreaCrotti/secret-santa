@@ -1,4 +1,5 @@
 import random
+import os
 
 from flask import Flask, render_template, request
 from flask_htmx import HTMX
@@ -8,7 +9,7 @@ from sqlalchemy import UniqueConstraint
 
 app = Flask(__name__)
 htmx = HTMX(app)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///app.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv('DATABASE_URL', "sqlite:///app.db")
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
